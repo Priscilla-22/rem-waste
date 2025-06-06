@@ -339,3 +339,4 @@ This application is optimized for deployment on:
 ## 📄 License
 
 This project is created as part of a coding challenge and is for demonstration purposes.
+# rem-waste
