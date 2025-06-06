@@ -3,8 +3,7 @@
 A modern, responsive redesign of the "Choose Your Skip Size" page with enhanced UX/UI and professional dark theme.
 
 ## 🚀 Live Demo
-- **Sandbox**: [Insert your live demo link]
-- **Repository**: [Insert GitHub repo link]
+- **Sandbox**: [(https://rem-waste-delta.vercel.app/)]
 
 ## 🛠️ Tech Stack
 - **React 18** with TypeScript
