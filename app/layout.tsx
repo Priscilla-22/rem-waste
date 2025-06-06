@@ -9,7 +9,6 @@ export const metadata: Metadata = {
   title: "Skip Selector - Choose Your Perfect Skip Size",
   description:
     "Select the ideal skip size for your waste disposal needs. Professional skip hire service with delivery and collection included.",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
