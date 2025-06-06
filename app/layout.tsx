@@ -6,7 +6,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Skip Selector - Choose Your Perfect Skip Size",
+  title: "Rem Waste",
   description:
     "Select the ideal skip size for your waste disposal needs. Professional skip hire service with delivery and collection included.",
 }
