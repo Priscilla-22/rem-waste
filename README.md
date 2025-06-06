@@ -16,7 +16,7 @@ A modern, responsive redesign of the "Choose Your Skip Size" page with enhanced 
 
 ```bash
 # Clone repository
-git clone [your-repo-url]
+git clone [repo-url]
 cd rem-waste
 
 # Install dependencies
