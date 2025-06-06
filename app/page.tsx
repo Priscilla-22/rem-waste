@@ -53,7 +53,7 @@ export default function SkipSelectorPage() {
       price: 227,
       hirePeriod: "7 day hire",
       description: "Perfect for small home projects and garden clearance",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/images/skip-bin-professional.png", // Professional render
       capacity: "30-40 bin bags",
       suitable: ["Garden waste", "Small renovations"],
       gradient: "from-emerald-400 via-teal-500 to-cyan-600",
@@ -65,7 +65,7 @@ export default function SkipSelectorPage() {
       price: 300,
       hirePeriod: "14 day hire",
       description: "Ideal for medium-sized renovations and clear-outs",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/images/skip-bin-photo.png", // Original photo
       popular: true,
       capacity: "50-60 bin bags",
       suitable: ["Kitchen renovations", "Bathroom refits"],
@@ -78,7 +78,7 @@ export default function SkipSelectorPage() {
       price: 325,
       hirePeriod: "7 day hire",
       description: "Great for larger projects and construction waste",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/images/skip-bin-professional.png", // Professional render
       capacity: "70-80 bin bags",
       suitable: ["Construction waste", "Large renovations"],
       gradient: "from-purple-400 via-violet-500 to-indigo-600",
@@ -90,7 +90,7 @@ export default function SkipSelectorPage() {
       price: 375,
       hirePeriod: "7 day hire",
       description: "Suitable for major home renovations",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/images/skip-bin-photo.png", // Original photo
       capacity: "90-100 bin bags",
       suitable: ["Major renovations", "House clearance"],
       gradient: "from-rose-400 via-pink-500 to-fuchsia-600",
@@ -102,7 +102,7 @@ export default function SkipSelectorPage() {
       price: 425,
       hirePeriod: "14 day hire",
       description: "Perfect for commercial projects and large clear-outs",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/images/skip-bin-professional.png", // Professional render
       capacity: "110-120 bin bags",
       suitable: ["Commercial projects", "Large construction"],
       gradient: "from-blue-400 via-sky-500 to-cyan-600",
@@ -114,7 +114,7 @@ export default function SkipSelectorPage() {
       price: 475,
       hirePeriod: "14 day hire",
       description: "Our largest skip for major construction projects",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/images/skip-bin-photo.png", // Original photo
       capacity: "130-140 bin bags",
       suitable: ["Major construction", "Industrial projects"],
       gradient: "from-red-400 via-orange-500 to-amber-600",
@@ -126,7 +126,7 @@ export default function SkipSelectorPage() {
       price: 525,
       hirePeriod: "14 day hire",
       description: "Extra large skip for major commercial projects",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/images/skip-bin-professional.png", // Professional render
       capacity: "150-160 bin bags",
       suitable: ["Major commercial", "Industrial demolition"],
       gradient: "from-green-400 via-emerald-500 to-teal-600",
@@ -138,7 +138,7 @@ export default function SkipSelectorPage() {
       price: 575,
       hirePeriod: "21 day hire",
       description: "Our premium skip for the largest projects",
-      image: "/placeholder.svg?height=200&width=300",
+      image: "/images/skip-bin-photo.png", // Original photo
       capacity: "170-180 bin bags",
       suitable: ["Demolition projects", "Large commercial"],
       gradient: "from-slate-400 via-gray-500 to-zinc-600",
@@ -381,150 +381,139 @@ export default function SkipSelectorPage() {
         {/* Skip Options Grid - Enhanced spacing and full width distribution */}
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10 xl:gap-12 mb-12 sm:mb-16 justify-items-stretch">
           {currentSkips.map((skip, index) => (
-            <Card
-              key={skip.id}
-              className={`group relative cursor-pointer transition-all duration-700 bg-gray-800/40 backdrop-blur-xl border border-gray-700/50 rounded-3xl overflow-hidden hover:border-gray-600/50 w-full ${
-                selectedSkip === skip.id
-                  ? "ring-2 ring-blue-500/50 shadow-2xl shadow-blue-500/20 transform scale-[1.02] bg-gray-800/60 border-blue-500/50"
-                  : "hover:shadow-2xl hover:shadow-gray-900/50 hover:transform hover:scale-[1.02] hover:-translate-y-2"
-              }`}
-              style={{
-                animationDelay: `${index * 100}ms`,
-              }}
-              onClick={() => handleSkipSelect(skip.id)}
-            >
+            <div key={skip.id} className="relative">
+              {/* Popular Badge - Positioned outside the card */}
               {skip.popular && (
-                <div className="absolute -top-3 left-6 z-20">
-                  <Badge className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-bold px-3 py-1 shadow-xl rounded-2xl border border-orange-400/30">
-                    <Star className="w-3 h-3 mr-1" />
+                <div className="absolute -top-2 left-6 z-30">
+                  <Badge className="bg-gradient-to-r from-orange-500 to-yellow-500 text-white font-bold px-4 py-2 shadow-xl rounded-2xl border border-orange-400/30 text-sm">
+                    <Star className="w-4 h-4 mr-1" />
                     Most Popular
                   </Badge>
                 </div>
               )}
 
-              <CardContent className="p-0 overflow-hidden h-full">
-                {/* Skip Image Section */}
-                <div className={`relative h-48 bg-gradient-to-br ${skip.gradient} overflow-hidden`}>
-                  <div className="absolute inset-0 bg-black/20"></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+              <Card
+                className={`group relative cursor-pointer transition-all duration-700 bg-gray-900 backdrop-blur-xl border border-gray-700/50 rounded-3xl overflow-hidden hover:border-gray-600/50 w-full ${
+                  selectedSkip === skip.id
+                    ? "ring-2 ring-blue-500/50 shadow-2xl shadow-blue-500/20 transform scale-[1.02] bg-gray-800/60 border-blue-500/50"
+                    : "hover:shadow-2xl hover:shadow-gray-900/50 hover:transform hover:scale-[1.02] hover:-translate-y-2"
+                } ${skip.popular ? "mt-4" : ""}`}
+                style={{
+                  animationDelay: `${index * 100}ms`,
+                }}
+                onClick={() => handleSkipSelect(skip.id)}
+              >
+                <CardContent className="p-0 overflow-hidden h-full">
+                  {/* Skip Image Section - Distant view with padding */}
+                  <div className="relative h-48 bg-gradient-to-br from-gray-50 to-gray-200 overflow-hidden p-8">
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={skip.image || "/placeholder.svg"}
+                        alt={`${skip.name} - Professional skip bin for waste disposal`}
+                        fill
+                        className="object-contain transition-transform duration-700 group-hover:scale-110"
+                        style={{
+                          transform: "scale(0.7)",
+                          filter: "drop-shadow(0 4px 8px rgba(0,0,0,0.1))",
+                        }}
+                      />
+                    </div>
 
-                  {/* Floating geometric shapes */}
-                  <div className="absolute top-4 left-4 w-6 h-6 bg-white/10 rounded-lg rotate-12 group-hover:rotate-45 transition-transform duration-700"></div>
-                  <div className="absolute bottom-4 right-4 w-4 h-4 bg-white/10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
-
-                  <Image
-                    src={skip.image || "/placeholder.svg"}
-                    alt={skip.name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-
-                  <div className="absolute top-4 right-4">
-                    <Badge className="bg-white/95 backdrop-blur-sm text-gray-900 font-bold text-base px-3 py-1 shadow-xl rounded-xl border border-white/20">
-                      {skip.size}
-                    </Badge>
-                  </div>
-
-                  {selectedSkip === skip.id && (
-                    <div className="absolute bottom-4 left-4 animate-fadeInUp">
-                      <div className="w-8 h-8 bg-blue-500 rounded-xl flex items-center justify-center shadow-xl ring-4 ring-white/20">
-                        <Check className="w-5 h-5 text-white" />
+                    {selectedSkip === skip.id && (
+                      <div className="absolute bottom-4 left-4 animate-fadeInUp">
+                        <div className="w-8 h-8 bg-blue-500 rounded-xl flex items-center justify-center shadow-xl ring-4 ring-white/20">
+                          <Check className="w-5 h-5 text-white" />
+                        </div>
                       </div>
-                    </div>
-                  )}
-                </div>
-
-                {/* Skip Details Section */}
-                <div className="p-5 space-y-4 flex-1 flex flex-col">
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300 mb-2">
-                      {skip.name}
-                    </h3>
-                    <p className="text-gray-300 text-sm leading-relaxed line-clamp-2 group-hover:text-gray-200 transition-colors duration-300">
-                      {skip.description}
-                    </p>
-                  </div>
-
-                  {/* Compact Info Grid */}
-                  <div className="space-y-2">
-                    <div className="flex items-center text-xs bg-gray-700/30 rounded-xl p-2 group-hover:bg-gray-700/50 transition-colors duration-300">
-                      <Truck className="w-3 h-3 mr-2 text-blue-400 flex-shrink-0" />
-                      <span className="text-gray-400">Capacity:</span>
-                      <span className="ml-1 text-white font-medium">{skip.capacity}</span>
-                    </div>
-                    <div className="flex items-center text-xs bg-gray-700/30 rounded-xl p-2 group-hover:bg-gray-700/50 transition-colors duration-300">
-                      <Clock className="w-3 h-3 mr-2 text-emerald-400 flex-shrink-0" />
-                      <span className="text-gray-400">Duration:</span>
-                      <span className="ml-1 text-white font-medium">{skip.hirePeriod}</span>
-                    </div>
-                  </div>
-
-                  {/* Road Placement Status */}
-                  <div
-                    className={`flex items-center text-xs rounded-xl p-2 ${
-                      Number.parseInt(skip.size) <= 8
-                        ? "bg-green-500/10 border border-green-500/20"
-                        : "bg-red-500/10 border border-red-500/20"
-                    }`}
-                  >
-                    {Number.parseInt(skip.size) <= 8 ? (
-                      <>
-                        <Check className="w-3 h-3 mr-2 text-green-400 flex-shrink-0" />
-                        <span className="text-green-300 font-medium">Road placement allowed</span>
-                      </>
-                    ) : (
-                      <>
-                        <X className="w-3 h-3 mr-2 text-red-400 flex-shrink-0" />
-                        <span className="text-red-300 font-medium">Private property only</span>
-                      </>
                     )}
                   </div>
 
-                  {/* Suitable For Tags */}
-                  <div className="flex flex-wrap gap-1">
-                    {skip.suitable.map((item, index) => (
-                      <Badge
-                        key={index}
-                        variant="secondary"
-                        className="bg-gray-700/50 text-gray-300 text-xs px-2 py-0.5 rounded-lg border border-gray-600/50"
-                      >
-                        {item}
-                      </Badge>
-                    ))}
-                  </div>
-
-                  <Separator className="bg-gradient-to-r from-transparent via-gray-600 to-transparent" />
-
-                  {/* Price and Action */}
-                  <div className="flex items-center justify-between pt-2">
-                    <div className="space-y-0.5">
-                      <div className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-                        £{skip.price}
-                      </div>
-                      <div className="text-xs text-gray-400 font-medium">inc. VAT</div>
+                  {/* Skip Details Section */}
+                  <div className="p-5 space-y-4 flex-1 flex flex-col">
+                    <div className="flex-1">
+                      <h3 className="text-xl font-bold text-white group-hover:text-blue-300 transition-colors duration-300 mb-2">
+                        {skip.name}
+                      </h3>
+                      <p className="text-gray-300 text-sm leading-relaxed line-clamp-2 group-hover:text-gray-200 transition-colors duration-300">
+                        {skip.description}
+                      </p>
                     </div>
-                    <Button
-                      variant={selectedSkip === skip.id ? "default" : "outline"}
-                      size="sm"
-                      className={
-                        selectedSkip === skip.id
-                          ? "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg shadow-blue-600/30 rounded-xl border-0 px-4 py-2 text-sm"
-                          : "border-gray-600 text-gray-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 hover:text-white hover:border-blue-500 rounded-xl px-4 py-2 backdrop-blur-sm text-sm"
-                      }
-                    >
-                      {selectedSkip === skip.id ? (
+
+                    {/* Clean Info Grid - No background colors */}
+                    <div className="space-y-2">
+                      <div className="flex items-center text-xs rounded-xl p-2 border border-gray-700/30 group-hover:border-gray-600/50 transition-colors duration-300">
+                        <Truck className="w-3 h-3 mr-2 text-blue-400 flex-shrink-0" />
+                        <span className="text-gray-400">Capacity:</span>
+                        <span className="ml-1 text-white font-medium">{skip.capacity}</span>
+                      </div>
+                      <div className="flex items-center text-xs rounded-xl p-2 border border-gray-700/30 group-hover:border-gray-600/50 transition-colors duration-300">
+                        <Clock className="w-3 h-3 mr-2 text-emerald-400 flex-shrink-0" />
+                        <span className="text-gray-400">Duration:</span>
+                        <span className="ml-1 text-white font-medium">{skip.hirePeriod}</span>
+                      </div>
+                    </div>
+
+                    {/* Road Placement Status - Updated text */}
+                    <div className="flex items-center text-xs rounded-xl p-2 border border-gray-700/30 group-hover:border-gray-600/50 transition-colors duration-300">
+                      {Number.parseInt(skip.size) <= 8 ? (
                         <>
-                          <Check className="w-3 h-3 mr-1" />
-                          Selected
+                          <Check className="w-3 h-3 mr-2 text-green-400 flex-shrink-0" />
+                          <span className="text-green-300 font-medium">Road placement allowed</span>
                         </>
                       ) : (
-                        "Book Size"
+                        <>
+                          <X className="w-3 h-3 mr-2 text-red-400 flex-shrink-0" />
+                          <span className="text-red-300 font-medium">Not allowed on the road</span>
+                        </>
                       )}
-                    </Button>
+                    </div>
+
+                    {/* Suitable For Tags */}
+                    <div className="flex flex-wrap gap-1">
+                      {skip.suitable.map((item, index) => (
+                        <Badge
+                          key={index}
+                          variant="secondary"
+                          className="bg-gray-700/30 text-gray-300 text-xs px-2 py-0.5 rounded-lg border border-gray-600/30"
+                        >
+                          {item}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    <Separator className="bg-gradient-to-r from-transparent via-gray-600 to-transparent" />
+
+                    {/* Price and Action */}
+                    <div className="flex items-center justify-between pt-2">
+                      <div className="space-y-0.5">
+                        <div className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+                          £{skip.price}
+                        </div>
+                        <div className="text-xs text-gray-400 font-medium">inc. VAT</div>
+                      </div>
+                      <Button
+                        variant={selectedSkip === skip.id ? "default" : "outline"}
+                        size="sm"
+                        className={
+                          selectedSkip === skip.id
+                            ? "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg shadow-blue-600/30 rounded-xl border-0 px-4 py-2 text-sm"
+                            : "border-gray-600 text-gray-300 hover:bg-gradient-to-r hover:from-blue-500 hover:to-blue-600 hover:text-white hover:border-blue-500 rounded-xl px-4 py-2 backdrop-blur-sm text-sm"
+                        }
+                      >
+                        {selectedSkip === skip.id ? (
+                          <>
+                            <Check className="w-3 h-3 mr-1" />
+                            Selected
+                          </>
+                        ) : (
+                          "Book Size"
+                        )}
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+            </div>
           ))}
         </div>
 
